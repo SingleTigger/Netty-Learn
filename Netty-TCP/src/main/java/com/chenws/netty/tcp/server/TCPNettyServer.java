@@ -11,6 +11,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * @author chenws
@@ -35,7 +37,10 @@ public class TCPNettyServer {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             //添加自定义处理器
-                            socketChannel.pipeline().addLast(new TCPNettyHandler());
+                            socketChannel.pipeline()
+                                    .addLast(new StringEncoder())
+                                    .addLast(new StringDecoder())
+                                    .addLast(new TCPNettyHandler());
                         }
                     });
             int port = 8080;

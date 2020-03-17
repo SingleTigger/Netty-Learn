@@ -1,7 +1,5 @@
 package com.chenws.netty.tcp.handler;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -11,16 +9,13 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @date 2020/03/17 14:57:34
  */
 @ChannelHandler.Sharable
-public class TCPNettyHandler extends SimpleChannelInboundHandler<ByteBuf> {
+public class TCPNettyHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-        byte[] bytes = new byte[msg.readableBytes()];
-        msg.readBytes(bytes);
-        String message = new String(bytes);
-        System.out.println(message);
+    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+        System.out.println(msg);
         //把消息写到缓冲区
-        ctx.write("I get the message " + message);
+        ctx.write("I get the message " + msg);
     }
 
     @Override
