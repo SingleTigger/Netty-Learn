@@ -12,5 +12,6 @@ repositories {
 }
 
 dependencies {
+    //依赖公共common
     compile project(':Netty-Common')
 }
