@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.chenws.netty.protobuf.proto";
+option java_outer_classname="NettyProtobuf";
+
+message People {
+    //姓名
+    string name = 1;
+    //年龄
+    int32 age = 2;
+    //性别
+    string gender = 3;
+    //地址
+    string address = 4;
+}

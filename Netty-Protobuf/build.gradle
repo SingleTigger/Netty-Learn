@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'com.chenws.netty'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':Netty-Common')
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.11.3'
+
+
+}
