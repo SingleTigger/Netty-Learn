@@ -6,11 +6,12 @@ group 'com.chenws.netty'
 version '1.0.0'
 
 sourceCompatibility = 1.8
+jar.enabled = true
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile project(':Netty-Common')
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.39.Final'
 }
