@@ -1,5 +1,6 @@
 package com.chenws.netty.protobuf.handler;
 
+import com.chenws.netty.protobuf.proto.NettyProtobuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -9,10 +10,10 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @date 2020/03/17 14:57:34
  */
 @ChannelHandler.Sharable
-public class TCPNettyHandler extends SimpleChannelInboundHandler<String> {
+public class PBNettyHandler extends SimpleChannelInboundHandler<NettyProtobuf.People> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, NettyProtobuf.People msg) throws Exception {
         System.out.println(msg);
         //把消息写到缓冲区
         ctx.write("I get the message " + msg);

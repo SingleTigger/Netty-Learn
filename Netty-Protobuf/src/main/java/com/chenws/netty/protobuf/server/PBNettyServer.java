@@ -1,8 +1,7 @@
 package com.chenws.netty.protobuf.server;
 
-import com.chenws.netty.tcp.handler.TCPNettyHandler;
-import com.chenws.netty.tcp.listener.BindListener;
-import com.chenws.netty.tcp.listener.CloseListener;
+import com.chenws.netty.protobuf.handler.PBNettyHandler;
+import com.chenws.netty.protobuf.proto.NettyProtobuf;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -11,6 +10,10 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
@@ -18,7 +21,7 @@ import io.netty.handler.codec.string.StringEncoder;
  * @author chenws
  * @date 2020/03/17 15:45:35
  */
-public class TCPNettyServer {
+public class PBNettyServer {
 
     public static void main(String[] args) {
         startTCPServer();
@@ -38,16 +41,18 @@ public class TCPNettyServer {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             //添加自定义处理器
                             socketChannel.pipeline()
-                                    .addLast(new StringEncoder())
-                                    .addLast(new StringDecoder())
-                                    .addLast(new TCPNettyHandler());
+                                    .addLast(new ProtobufVarint32FrameDecoder())
+                                    .addLast(new ProtobufDecoder(NettyProtobuf.People.getDefaultInstance()))
+                                    .addLast(new ProtobufVarint32LengthFieldPrepender())
+                                    .addLast(new ProtobufEncoder())
+                                    .addLast(new PBNettyHandler());
                         }
                     });
-            int port = 8080;
+            int port = 8082;
             //监听器，当服务绑定成功后执行
-            ChannelFuture channelFuture = serverBootstrap.bind(port).sync().addListener(new BindListener());
+            ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
             //监听器，当停止服务后执行。
-            channelFuture.channel().closeFuture().sync().addListener(new CloseListener());
+            channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
