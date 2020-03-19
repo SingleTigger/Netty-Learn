@@ -16,7 +16,7 @@ public class PBNettyHandler extends SimpleChannelInboundHandler<NettyProtobuf.Pe
     protected void channelRead0(ChannelHandlerContext ctx, NettyProtobuf.People msg) throws Exception {
         System.out.println(msg);
         //把消息写到缓冲区
-        ctx.write("I get the message " + msg);
+        ctx.write("I get the messages " + msg);
     }
 
     @Override
