@@ -9,7 +9,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @date 2020/03/17 14:57:34
  */
 @ChannelHandler.Sharable
-public class TCPNettyHandler extends SimpleChannelInboundHandler<String> {
+public class TcpNettyHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {

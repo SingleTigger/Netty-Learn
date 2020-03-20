@@ -1,6 +1,6 @@
 package com.chenws.netty.tcp.server;
 
-import com.chenws.netty.tcp.handler.TCPNettyHandler;
+import com.chenws.netty.tcp.handler.TcpNettyHandler;
 import com.chenws.netty.tcp.listener.BindListener;
 import com.chenws.netty.tcp.listener.CloseListener;
 import io.netty.bootstrap.ServerBootstrap;
@@ -18,13 +18,13 @@ import io.netty.handler.codec.string.StringEncoder;
  * @author chenws
  * @date 2020/03/17 15:45:35
  */
-public class TCPNettyServer {
+public class TcpNettyServer {
 
     public static void main(String[] args) {
-        startTCPServer();
+        startTcpServer();
     }
 
-    private static void startTCPServer(){
+    private static void startTcpServer(){
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup(6);
         try {
@@ -40,7 +40,7 @@ public class TCPNettyServer {
                             socketChannel.pipeline()
                                     .addLast(new StringEncoder())
                                     .addLast(new StringDecoder())
-                                    .addLast(new TCPNettyHandler());
+                                    .addLast(new TcpNettyHandler());
                         }
                     });
             int port = 8080;
