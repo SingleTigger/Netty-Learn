@@ -24,10 +24,10 @@ import io.netty.handler.codec.string.StringEncoder;
 public class PBNettyServer {
 
     public static void main(String[] args) {
-        startTCPServer();
+        startProtobufServer();
     }
 
-    private static void startTCPServer(){
+    private static void startProtobufServer(){
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup(6);
         try {
