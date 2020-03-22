@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'com.chenws.netty'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //依赖公共common
+    compile project(':Netty-Common')
+}

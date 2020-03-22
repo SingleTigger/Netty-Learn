@@ -3,4 +3,5 @@ include 'Netty-Common'
 include 'Netty-TCP'
 include 'Netty-UDP'
 include 'Netty-Protobuf'
+include 'Netty-MQTT'
 
