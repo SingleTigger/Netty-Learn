@@ -5,8 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * @author chenws
- * @date 2020/03/17 14:57:34
+ * Created by chenws on 2020/3/24.
  */
 @ChannelHandler.Sharable
 public class TcpNettyHandler extends SimpleChannelInboundHandler<String> {

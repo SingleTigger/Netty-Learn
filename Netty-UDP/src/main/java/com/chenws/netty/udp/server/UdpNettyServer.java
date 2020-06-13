@@ -8,8 +8,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 
 /**
- * @author chenws
- * @date 2020/03/18 10:07:38
+ * Created by chenws on 2020/3/24.
  */
 public class UdpNettyServer {
 

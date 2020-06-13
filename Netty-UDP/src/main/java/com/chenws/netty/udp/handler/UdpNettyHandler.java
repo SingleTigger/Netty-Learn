@@ -9,8 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
 /**
- * @author chenws
- * @date 2020/03/18 10:08:57
+ * Created by chenws on 2020/3/24.
  */
 public class UdpNettyHandler extends SimpleChannelInboundHandler<DatagramPacket> {
 

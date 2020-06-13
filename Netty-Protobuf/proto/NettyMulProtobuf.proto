@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_package = "com.chenws.netty.protobuf.proto";
+option java_outer_classname="NettyMulProtobuf";
+
+message MultipleMessage {
+    enum DataType {
+        StudentType = 0;
+        SchoolType = 1;
+    }
+
+    DataType data_type = 1;
+
+    oneof dataBody {
+        Student student = 2;
+        School school = 3;
+    }
+}
+
+message Student {
+    string name = 1;
+    int32 age = 2;
+    string address = 3;
+}
+
+message School {
+    string school_name = 1;
+    string school_address = 2;
+}
