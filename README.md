@@ -10,10 +10,15 @@
 大家可以自己写客户端，不过建议直接用现成的。我这里提供常用的Socket测试工具，
 见项目utils目录。
 
-## Protobuf
-见Netty-Protobuf模块，protoc.exe程序把.proto文件生成java代码，执行指令
-**protoc --java_out=./ ./NettyProtobuf.proto**（以我提供的文件为例）。
-对PB协议不了解的可以自行学习。
+## 支持协议
+- TCP
+- UDP
+- MQTT
+- Protobuf
 
-## Netty对Protobuf多种协议支持
-完善ing...
+
+## Protobuf
+见Netty-Protobuf模块，运行protoc.exe程序把.proto文件生成java代码，执行指令：**protoc --java_out=./ ./NettyProtobuf.proto**。
+
+### Protobuf多种协议支持
+见package mul。

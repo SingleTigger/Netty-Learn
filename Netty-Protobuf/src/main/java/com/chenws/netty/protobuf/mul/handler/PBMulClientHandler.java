@@ -1,6 +1,6 @@
-package com.chenws.netty.protobuf.client;
+package com.chenws.netty.protobuf.mul.handler;
 
-import com.chenws.netty.protobuf.proto.NettyMulProtobuf;
+import com.chenws.netty.protobuf.mul.proto.NettyMulProtobuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

@@ -1,6 +1,7 @@
-package com.chenws.netty.protobuf.client;
+package com.chenws.netty.protobuf.mul.client;
 
-import com.chenws.netty.protobuf.proto.NettyMulProtobuf;
+import com.chenws.netty.protobuf.mul.handler.PBMulClientHandler;
+import com.chenws.netty.protobuf.mul.proto.NettyMulProtobuf;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
